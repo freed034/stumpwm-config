@@ -1,0 +1,10 @@
+# Created by フランク <@freed034> at Orsay - France
+# Modified at Firenze - Italy, February 2022
+
+* Description
+This is a repo with a custom configuration of stumpwm. It works in any Linux distribution.
+
+* Use
+To use this config files, you need to use the git clone command into a local folder and therefore use a symbolic link to create the file .stumpwmrc in your home directory.
+
+
