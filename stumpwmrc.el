@@ -1,6 +1,5 @@
-;; Created by フランク <@freed034> at Caen - France, February 2015
+;; Created by フランク <freed034@pm.me> at Caen - France, February 2015
 ;; Last modification made at Orsay - France, December 2021
-;; E-mail: freed034@pm.me
 
 ;; -*-lisp-*-
 (in-package :stumpwm) ;;(setf *default-package* :stumpwm)

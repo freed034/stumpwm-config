@@ -1,5 +1,5 @@
-# Created by フランク <@freed034> at Orsay - France
-# Modified at Firenze - Italy, February 2022
+# Created by フランク <freed034@pm.me> at Orsay - France
+# Last modification made at Firenze - Italy, February 2022
 
 * Description
 This is a repo with a custom configuration of stumpwm. It works in any Linux distribution.
