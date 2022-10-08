@@ -4,7 +4,7 @@
 * Description
 This is a repo with my custom configuration of stumpwm. It works in any Linux distribution.
 
-* Use
+* Usage
 To use this config file, you need to use the git clone command into a local folder and therefore use a symbolic link to create the file .stumpwmrc in your home directory.
 
 
