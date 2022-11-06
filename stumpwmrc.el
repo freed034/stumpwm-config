@@ -195,12 +195,8 @@
 ;; MY FUNCTIONS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Old Emacs configuration
-;;(defvar *emacs-command* nil "Start an emacsclient frame. Starts an emacs daemon if necessary.")
-;;(setf *emacs-command* "bash -c -i 'emacsclient -c -a emacs'") ;;(setf *emacs-command* "bash -c -i 'emacsclient -c -a \"\"'")
-;;(defcommand emacs () () (run-shell-command (concat "exec " *emacs-command*)))
-
 ;; Emacs
+
 (setf *emacs-command* "/usr/bin/emacsclient -c -a /usr/bin/emacs")
 (defcommand my_emacs () ()
   "run emacs"
@@ -286,14 +282,14 @@
 ;; Shortcut to lock the screen using xscreensaver
 (defcommand lock-screen-xscreen () ()
   "lock the screen"
-  (run-or-raise "xscreensaver-command -lock" '(:instance "xscreensaver")))
+  (run-shell-command "xscreensaver-command -lock"))
 
 ;; Shortcut to lock the screen using xtrlock
 (defcommand lock-screen () ()
   "lock the screen"
-  ;;(run-shell-command "exec xflock4"))
-  (run-shell-command "xtrlock")) ;; the last function is instend (define-key *root-map* (kbd "l") "exec xtrlock -b") ;; lock screen
+  (run-shell-command "xtrlock"))
 
+;; Suspend the machine
 (defcommand suspend-machine () ()
   "suspend the machine"
   (run-shell-command "systemctl suspend"))
@@ -365,18 +361,20 @@
 ;; MY KEYS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define-key *root-map* (kbd "e") "my_emacs") ;; emacs
-(define-key *root-map* (kbd "c") "terminal") ;; default terminal
+(define-key *root-map* (kbd "e") "my_emacs") ;; launch emacs
+(define-key *root-map* (kbd "c") "terminal") ;; launch terminal
+(define-key *root-map* (kbd "s-f") "firefox-browser") ;; launch firefox
+(define-key *root-map* (kbd "s-o") "midori-browser") ;; launch midori
+(define-key *root-map* (kbd "s-l") "luakit-browser") ;; launch luakit
+;;(define-key *root-map* (kbd "s-k") "konqueror-browser") ;; launch konqueror
+;;(define-key *root-map* (kbd "s-c") "chromium-browser") ;; launch chrome
+(define-key *root-map* (kbd "s-b") "thunar") ;; launch thunar
+;;(define-key *root-map* (kbd "s-b") "fff") ;; launch fast file manager
+;;(define-key *root-map* (kbd "s-s") "search-tool") ;; launch gnome-search-tool
+;;(define-key *top-map*  (kbd "XF86Launch9") "spotify") ;; launch spotify
+
 (define-key *root-map* (kbd "s-x") "lock-screen") ;; lock screen
-(define-key *root-map* (kbd "s-f") "firefox-browser") ;; firefox
-(define-key *root-map* (kbd "s-o") "midori-browser") ;; midori
-(define-key *root-map* (kbd "s-l") "luakit-browser") ;; luakit
-;;(define-key *root-map* (kbd "s-k") "konqueror-browser") ;; konqueror
-;;(define-key *root-map* (kbd "s-c") "midori-browser") ;; midori
-;;(define-key *root-map* (kbd "s-c") "chromium-browser") ;; chrome
-(define-key *root-map* (kbd "s-b") "thunar") ;; thunar
-;;(define-key *root-map* (kbd "s-b") "fff") ;; fast file manager
-;;(define-key *root-map* (kbd "s-s") "search-tool") ;; gnome-search-tool
+(define-key *root-map* (kbd "s-s") "suspend-machine") ;; suspend machine
 
 (define-key *root-map* (kbd "s-m") "mode-line")
 (define-key *root-map* (kbd "w") "windowlist")
@@ -385,14 +383,11 @@
 (define-key *root-map* (kbd "s-TAB") "gnext")
 (define-key *root-map* (kbd "s-z") "fullscreen")
 (define-key *root-map* (kbd "s-g") "abort")
-(define-key *root-map* (kbd "s-s") "suspend-machine")
 (define-key *root-map* (kbd "s-Up") "move-window up")
 (define-key *root-map* (kbd "s-Left") "move-window left")
 (define-key *root-map* (kbd "s-Down") "move-window down")
 (define-key *root-map* (kbd "s-Right") "move-window right")
 (define-key *root-map* (kbd "s-DEL") "repack-window-numbers")
-
-;;(define-key *top-map*  (kbd "XF86Launch9") "spotify")
 
 ;; KEY DEFINITION - Key code symbol table
 ;; note: certain keyboards have this different. use xev to find yours if these don't work
@@ -419,11 +414,9 @@
 	*key-codes*)
 
 ;; Volume control
-(define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
-(define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
-
-;; Mute
-(define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-") ;; lower volume
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+") ;; raise volume
+(define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle") ;; mute volume
 
 ;; Alternatives keybinding
 ;; (define-key *top-map* (kbd "M-Tab") "pull-hidden-next")
