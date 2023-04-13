@@ -12,12 +12,12 @@ To use this config file, put the *init.lisp* file inside the local folder *~/.st
     git clone https://github.com/freed034/stumpwm-config.git ~/stumpwm-config
   #+end_src
 
- - create the local folder *.stumpwmd* if it does not exist
+- create the local folder *.stumpwmd* if it does not exist
    #+begin_src bash
      mkdir ~/.stumpwmd
    #+end_src
 
- - make a symbolic link inside the local stumpwm folder *~/.stumpwmd*
+- make a symbolic link inside the local stumpwm folder *~/.stumpwmd*
    #+begin_src bash
      ln -sf ~/stumpwm-config/init.lisp ~/.stumpwmd/init.lisp
    #+end_src
