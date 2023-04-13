@@ -1,10 +1,25 @@
-# Created by フランク <freed034@pm.me> at Orsay - France
-# Last modification made at Firenze - Italy
+# Created by Frank Taipe (フランク) <freed034@pm.me> at Orsay - France (2021)
+# Mayor changes made at Firenze - Italy (2022)
 
 * Description
-This is a repo with my custom configuration of stumpwm. It works in any Linux distribution.
+This is a repo with my custom configuration for stumpwm. It works in any Linux distribution.
 
 * Usage
-To use this config file, you need to use the git clone command into a local folder and therefore use a symbolic link to create the file .stumpwmrc in your home directory.
+To use this config file, put the *init.lisp* file inside the local folder *~/.stumpwmd*. If you clone the repository in your own computer, make a symbolic link inside the local folder *~/.stumpwmd* to the *init.lisp* file in the clone folder. You can follow the next instructions:
+
+- clone the repository in your own computer
+  #+begin_src bash
+    git clone https://github.com/freed034/stumpwm-config.git ~/stumpwm-config
+  #+end_src
+
+ - create the local folder *.stumpwmd* if it does not exist
+   #+begin_src bash
+     mkdir ~/.stumpwmd
+   #+end_src
+
+ - make a symbolic link inside the local stumpwm folder *~/.stumpwmd*
+   #+begin_src bash
+     ln -sf ~/stumpwm-config/init.lisp ~/.stumpwmd/init.lisp
+   #+end_src
 
 
