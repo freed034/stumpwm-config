@@ -1,5 +1,7 @@
-;; Created from scratch by Frank Taipe (フランク) <freed034@pm.me> at Caen - France (2015)
+;; Created from scratch at Caen - France (2015)
 ;; Mayor changes made at Orsay - France (2021)
+;; Author: Frank Taipe (フランク) <freed034@pm.me>
+;; URL: https://github.com/freed034/stumpwm-config
 
 ;; -*-lisp-*-
 (in-package :stumpwm)
